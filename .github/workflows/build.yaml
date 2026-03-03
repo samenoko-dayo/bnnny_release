@@ -38,8 +38,8 @@ jobs:
       - name: download yt-dlp binary(mac)
         if: matrix.platform == 'macos-latest'
         run: |
-          curl -L "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/latest/download/yt-dlp" -o ".\src-tauri\binaries\yt-dlp-aarch64-apple-darwin"
-          chmod +x ".\src-tauri\binaries\yt-dlp-aarch64-apple-darwin"
+          curl -L "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/latest/download/yt-dlp_macos" -o src-tauri/binaries/yt-dlp-aarch64-apple-darwin
+          chmod +x src-tauri/binaries/yt-dlp-aarch64-apple-darwin
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
