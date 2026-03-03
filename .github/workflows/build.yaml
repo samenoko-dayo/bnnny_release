@@ -17,19 +17,13 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: 'samenoko-dayo/bnnny'
       - uses: oven-sh/setup-bun@v2
       - name: setup node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: set git config
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "git@samenoko.work"
-      - name: clone repo
-        run: |
-          git clone https://${{ secrets.CODEBERG_TOKEN }}@codeberg.org/samenoko_dayo/bnnny.git
-          cd bnnny
       - name: install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
